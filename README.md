@@ -22,3 +22,5 @@ Package — это группировка классов, предназначе
 https://mentee-power.xl.ru/learn/MCIneBj4KkyH-GIRCspFvA/theory
 
 # Правило веток: feature/DVT-X» с примерами master и feature/DVT-3
+
+# Git локальный цикл: шаги и команды
