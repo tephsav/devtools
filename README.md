@@ -20,3 +20,5 @@ Package — это группировка классов, предназначе
 
 # Ссылка на урок
 https://mentee-power.xl.ru/learn/MCIneBj4KkyH-GIRCspFvA/theory
+
+# Правило веток: feature/DVT-X» с примерами master и feature/DVT-3
