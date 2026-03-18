@@ -1,11 +1,11 @@
 # Quick Start
 Run:
-* Gradle -> devtools -> Tasks -> application -> run
-* Run Anything (Ctrl + Ctrl) -> gradle run
+* Gradle → devtools → Tasks → application → run
+* Run Anything (Ctrl + Ctrl) → gradle run
 
 Test
-* Gradle -> devtools -> Tasks -> verification -> test
-* Run Anything (Ctrl + Ctrl) -> gradle test
+* Gradle → devtools → Tasks → verification → test
+* Run Anything (Ctrl + Ctrl) → gradle test
 
 # Packages
 Package — это группировка классов, предназначенная для конфликта имен и упрощения навигации.  
@@ -13,14 +13,19 @@ Package — это группировка классов, предназначе
 Ограничения: Структура папок должна точно повторять имя пакета: если в коде написано package ru.mentee.power, файл обязан лежать в src/main/java/ru/mentee/power/, иначе компилятор выдаст ошибку.
 
 # Таблица переменных/полей
-* menteeName — имя студента (String)  
-* sprintNumber — номер спринта (int)  
-* plannedHoursPerWeek — запланированные часы (int)  
+* menteeName — имя студента (String)
+* sprintNumber — номер спринта (int)
+* plannedHoursPerWeek — запланированные часы (int)
 * readyForSprint() — правило, готов ли студент к спринту (если студент запланировал >= 3 часов на спринт)
 
 # Ссылка на урок
 https://mentee-power.xl.ru/learn/MCIneBj4KkyH-GIRCspFvA/theory
 
 # Правило веток: feature/DVT-X» с примерами master и feature/DVT-3
+* Ветку master оставляем чистым
+* Работу ведём в ветке feature/DVT-<номер>
 
 # Git локальный цикл: шаги и команды
+1. Создание ветки (git branch feature/DVT-X)
+2. Переключение ветки (git checkout feature/DVT-X)
+3. Коммит (git commit -m "comments")
