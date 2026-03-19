@@ -9,6 +9,6 @@ build/
 *.iml
 out/
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
