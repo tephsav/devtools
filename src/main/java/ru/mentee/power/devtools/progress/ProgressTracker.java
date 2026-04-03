@@ -25,11 +25,12 @@ public class ProgressTracker {
 
         int totalRemaining = totalTotal - totalCompleted;
 
-        return String.format("Суммарно: пройдено %d из %d уроков, осталось %d уроков", totalCompleted, totalTotal, totalRemaining);
+        return String.format("Суммарно: пройдено %d из %d уроков, осталось %d уроков",
+                totalCompleted, totalTotal, totalRemaining);
     }
 
     public static void main(String[] args) {
-        ProgressTracker tracker = new ProgressTracker();
+        /*ProgressTracker tracker = new ProgressTracker();
 
         // Создаём массив mentee (продолжение DVT-2: добавляем прогресс к личной карточке)
         Mentee[] mentees = {
@@ -39,6 +40,6 @@ public class ProgressTracker {
         };
 
         String progress = tracker.calculateTotalProgress(mentees);
-        System.out.println(progress);
+        System.out.println(progress);*/
     }
 }
