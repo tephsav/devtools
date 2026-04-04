@@ -17,11 +17,11 @@ public class ProgressTracker {
         int totalTotal = 0;
         int index = 0;
 
-//        while (index < mentees.length) {
-//            totalCompleted += mentees[index].completedLessons();
-//            totalTotal += mentees[index].totalLessons();
-//            index++;
-//        }
+        while (index < mentees.length) {
+            totalCompleted += mentees[index].completedLessons();
+            totalTotal += mentees[index].totalLessons();
+            index++;
+        }
 
         int totalRemaining = totalTotal - totalCompleted;
 
