@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentList {
+    // TODO
     private List<Student> studentList;
 
     public StudentList() {
@@ -17,6 +18,7 @@ public class StudentList {
     }
 
     public List<Student> getStudentsByCity(String city) {
+        System.out.println("Debug: filtering students by city = " + city);
         return studentList.stream().filter(s -> s.city().equals(city)).toList();
     }
 }
