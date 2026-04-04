@@ -108,3 +108,11 @@ https://mentee-power.xl.ru/learn/MCIneBj4KkyH-GIRCspFvA/theory
 
 Почему: скобки обязательны даже для однострочных блоков.
 Источник: https://google.github.io/styleguide/javaguide.html#s4.1.1-braces-always-used
+
+# CI-пайплайн настроен
+
+# DevTools Project
+
+[![Java CI](https://github.com/tephsav/devtools/actions/workflows/ci.yml/badge.svg)](https://github.com/tephsav/devtools/actions/workflows/ci.yml)
+
+Описание проекта...
