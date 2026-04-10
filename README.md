@@ -1,5 +1,30 @@
 # DevTools Project
 
+## Технологический стек проекта
+
+### Языки и платформы
+- **Java 25 LTS** — основной язык разработки
+- **Gradle 8.x** — система сборки (через Gradle Wrapper)
+
+### Инструменты качества кода
+- **Checkstyle** — статический анализ стиля кода
+  - Конфигурация: `config/checkstyle/checkstyle.xml`
+  - Запуск: `./gradlew checkstyleMain`
+- **JUnit 5** — фреймворк тестирования
+  - Запуск: `./gradlew test`
+
+### CI/CD
+- **GitHub Actions** — автоматическая проверка PR
+  - Checkstyle на каждый коммит
+  - Тесты на каждый коммит
+  - Конфигурация: `.github/workflows/`
+
+### Правила кода
+- Стиль: Google Java Style Guide (через Checkstyle)
+- Коммиты: Conventional Commits (`feat:`, `fix:`, `docs:`)
+- Ветки: `feature/DVT-X` для задач, `master` — основная
+- Pull Request: обязателен для слияния в master
+
 [![Java CI](https://github.com/tephsav/devtools/actions/workflows/ci.yml/badge.svg)](https://github.com/tephsav/devtools/actions/workflows/ci.yml)
 
 Описание проекта...
@@ -312,3 +337,289 @@ public String calculateTotalProgress(Mentee[] mentees) {
 * Согласованность данных (completed > total)
 * Осмысленные имена переменных
 * Разделение логики и представления
+
+
+
+
+## Личный глоссарий терминов Dev Tools
+
+### Категория: Java-экосистема
+
+#### JDK — Java Development Kit
+
+**Определение:** Development environment for building applications using the Java programming language. Includes compiler (javac), archiver (jar), documentation generator (javadoc), and other tools.
+
+**Контекст использования:** JDK необходим для компиляции Java-кода в байт-код и создания исполняемых JAR-файлов. Без JDK невозможно собрать Java-проект.
+
+**Пример:** После установки JDK выполняем `java -version` для проверки версии. В IntelliJ IDEA настраиваем Project SDK: File → Project Structure → Project → SDK → выбираем JDK 25.
+
+**Источник:** https://docs.oracle.com/en/java/javase/21/docs/
+
+---
+
+#### JRE — Java Runtime Environment
+
+**Определение:** Runtime environment that provides libraries and JVM required to run Java applications.
+
+**Контекст использования:** Используется для запуска Java-программ без инструментов разработки.
+
+**Пример:** запускаем команду `java Main`, где Main — это имя Java-класса, содержащего точку входа в программу.
+
+**Источник:** https://docs.oracle.com/javase/8/docs/
+
+---
+
+#### JVM — Java Virtual Machine
+
+**Определение:** Virtual machine that executes Java bytecode and enables platform independence.
+
+**Контекст использования:** Выполняет байт-код, созданный компилятором Java.
+
+**Пример:** Запуск `.class` файла через JVM.
+
+**Источник:** https://docs.oracle.com/javase/specs/
+
+---
+
+#### Gradle Wrapper — Gradle Wrapper
+
+**Определение:** Script that allows running a specific Gradle version without requiring global installation.
+
+**Контекст использования:** Обеспечивает одинаковую версию Gradle для всей команды.
+
+**Пример:** Выполняем команду `./gradlew build`
+
+**Источник:** https://docs.gradle.org/current/userguide/gradle_wrapper.html
+
+---
+
+#### Инструмент сборки — Build Tool
+
+**Определение:** Tool that automates compiling, testing, and packaging code.
+
+**Контекст использования:** Используется для автоматизации процесса сборки проекта.
+
+**Пример:** Gradle, Maven.
+
+**Источник:** https://docs.gradle.org/current/userguide/userguide.html
+
+---
+
+#### Зависимость — Dependency
+
+**Определение:** External library required by a project.
+
+**Контекст использования:** Подключается через build tool для расширения функциональности.
+
+**Пример:** `implementation 'org.springframework:spring-core:6.0.0'`. Gradle при сборке автоматически скачивает библиотеку из удалённого репозитория (например, Maven Central), добавляет её в classpath и делает доступной для использования в коде проекта
+
+**Источник:** https://docs.gradle.org/current/userguide/dependency_management_basics.html
+
+---
+
+#### Артефакт — Artifact
+
+**Определение:** Output file produced by a build process (e.g., JAR, WAR).
+
+**Контекст использования:** Используется как финальный результат сборки для передачи между этапами разработки и доставки.
+
+**Пример:** `app.jar`
+
+**Источник:** https://docs.gradle.org/current/userguide/artifact_resolution.html
+
+---
+
+### Категория: Инструменты разработки
+
+#### IDE — Integrated Development Environment
+
+**Определение:** Software application providing tools for development such as editor, debugger, and build automation.
+
+**Контекст использования:** Основная среда разработки.
+
+**Пример:** IntelliJ IDEA, Eclipse, VS Code
+
+**Источник:** https://www.jetbrains.com/help/idea/discover-intellij-idea.html
+
+---
+
+#### SDK — Software Development Kit
+
+**Определение:** Collection of software tools and libraries for developing applications.
+
+**Контекст использования:** Используется для разработки под конкретную платформу.
+
+**Пример:** AWS SDK.
+
+**Источник:** https://aws.amazon.com/what-is/sdk/
+
+---
+
+### Git — Git
+
+**Определение:** Distributed version control system for tracking changes in source code.
+
+**Контекст использования:** Управление версиями проекта.
+
+**Пример:** `git init; git add .; git commit -m "initial commit"`. Инициализация репозитория, добавление файлов в индекс и создание первого коммита, фиксирующего текущее состояние пр
+
+**Источник:** https://git-scm.com/docs/git
+
+---
+
+#### Репозиторий — Repository
+
+**Определение:** Storage location for code and its history.
+
+**Контекст использования:** Хранит проект и историю изменений.
+
+**Пример:** GitHub / GitLab repository.
+
+**Источник:** https://git-scm.com/docs/gitglossary
+
+---
+
+#### Коммит — Commit
+
+**Определение:** Snapshot of changes in the repository.
+
+**Контекст использования:** Фиксирует изменения в истории.
+
+**Пример:** `git commit -m "fix bug"`
+
+**Источник:** https://git-scm.com/docs/git-commit
+
+---
+
+#### Ветка — Branch
+
+**Определение:** Independent line of development.
+
+**Контекст использования:** Используется для изоляции изменений в процессе разработки, что позволяет параллельную работу команды, безопасное внесение изменений и последующее слияние (merge) в основную ветку через Pull Request.
+
+**Пример:** `git checkout -b feature/login`
+
+**Источник:** https://git-scm.com/docs/git-branch
+
+---
+
+#### Pull Request — Pull Request
+
+**Определение:** Request to merge changes from one branch into another.
+
+**Контекст использования:** Используется как механизм интеграции изменений между ветками с обязательной проверкой: code review, автоматические проверки (CI, тесты), обсуждение изменений и контроль перед слиянием в целевую ветку
+
+**Пример:** В системе (GitHub/GitLab) создаётся PR:
+* source: feature/login
+* target: main
+
+После этого запускаются CI-проверки и code review перед merge.
+
+**Источник:** https://docs.github.com/en/pull-requests
+
+---
+
+#### Checkstyle — Checkstyle
+
+**Определение:** Tool for checking Java code against coding standards.
+
+**Контекст использования:** Контроль качества и стиля кода.
+
+**Пример:** `./gradlew checkstyleMain`
+
+**Источник:** https://checkstyle.sourceforge.io/
+
+---
+
+#### Отладка — Debug
+
+**Определение:** Process of identifying and fixing bugs in code.
+
+**Контекст использования:** Используется для анализа пошагового выполнения программы, позволяет отслеживать поток выполнения, проверять значения переменных, стек вызовов и поведение кода для устранения ошибок.
+
+**Пример:** Запуск Debug в IDE.
+
+**Источник:** https://dev.java/learn/debugging/
+
+---
+
+#### Точка останова — Breakpoint
+
+**Определение:** Marker that pauses program execution during debugging.
+
+**Контекст использования:** Используется для анализа текущего состояния программы (значения переменных, стек вызовов, условия выполнения и поток управления)
+
+**Пример:** Установка breakpoint в IDE.
+
+**Источник:** https://www.jetbrains.com/help/idea/using-breakpoints.html
+
+---
+
+### Категория: Процессы и практики
+
+#### Code Review — Code Review
+
+**Определение:** Systematic examination of code to identify issues and improve quality.
+
+**Контекст использования:** Используется как обязательный этап перед интеграцией изменений в основную ветку: обеспечивает контроль качества кода, выявление дефектов, проверку архитектурных решений, соответствие стандартам и обмен знаниями внутри команды через обсуждение в Pull Request.
+
+**Пример:** Review PR в GitHub.
+
+**Источник:** https://docs.gitlab.com/development/code_review/
+
+---
+
+#### CI/CD — Continuous Integration / Continuous Delivery
+
+**Определение:** Practices for automating integration and delivery of code changes.
+
+**Контекст использования:** Используется для автоматизации полного цикла доставки изменений: сборка, тесты и проверки (CI), разворачивание в средах (CD).
+
+**Пример:** Pipeline автоматически запускается при push или pull request, выполняет сборку проекта, запускает тесты и формирует проверяемый результат перед интеграцией изменений.
+
+**Источник:** https://docs.github.com/en/actions
+
+---
+
+#### Runbook — Runbook
+
+**Определение:** Document describing procedures for handling operations and incidents.
+
+**Контекст использования:** Используется как документация по эксплуатации системы: пошаговые процедуры для обработки инцидентов, диагностики, восстановления сервисов.
+
+**Пример:** Инструкция по восстановлению сервиса.
+
+**Источник:** https://docs.gitlab.com/user/project/clusters/runbooks/
+
+---
+
+
+
+
+## Вопросы по сложным терминам
+
+### Вопрос 1: Gradle Wrapper
+
+**Задача:** Не понимаю, зачем нужен Gradle Wrapper, если можно установить Gradle глобально.
+
+**Контекст:** Изучил документацию Gradle, вижу файлы `gradlew` и `gradlew.bat` в проекте.
+
+**Ограничения:** Пробовал запускать и через `gradle`, и через `gradlew`, разницы не увидел.
+
+**Ожидаемый результат:** Понимание, зачем Wrapper нужен в командной разработке и CI.
+
+**Критерии успеха:** Могу объяснить, почему `./gradlew` предпочтительнее и как он фиксирует версию Gradle.
+
+---
+
+### Вопрос 2: Breakpoint
+
+**Задача:** Не до конца понимаю, как эффективно использовать breakpoints при отладке.
+
+**Контекст:** Использую Debug в IntelliJ IDEA, ставлю breakpoint, но не всегда понимаю, что дальше делать.
+
+**Ограничения:** Пробовал step over и step into, но путаюсь в сложных вызовах.
+
+**Ожидаемый результат:** Чёткое понимание стратегии отладки с breakpoint.
+
+**Критерии успеха:** Могу локализовать баг, используя breakpoint и пошаговое выполнение.
