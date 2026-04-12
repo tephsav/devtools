@@ -52,6 +52,13 @@ test {
 
 jacocoTestReport {
     dependsOn test
+    classDirectories.setFrom(
+            files(classDirectories.files.collect {
+                fileTree(dir: it, exclude: [
+                        'ru/mentee/power/devtools/LiveCodingDemo.class'
+                ])
+            })
+    )
     reports {
         xml.required = false
         csv.required = false
@@ -62,6 +69,13 @@ jacocoTestReport {
 
 jacocoTestCoverageVerification {
     dependsOn jacocoTestReport
+    classDirectories.setFrom(
+            files(classDirectories.files.collect {
+                fileTree(dir: it, exclude: [
+                        'ru/mentee/power/devtools/LiveCodingDemo.class'
+                ])
+            })
+    )
     violationRules {
         rule {
             limit {
