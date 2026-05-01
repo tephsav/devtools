@@ -1,5 +1,8 @@
 package ru.mentee.power.devtools;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class LiveCodingDemo {
     public static void main(String[] args) {
         // #1
@@ -14,6 +17,28 @@ public class LiveCodingDemo {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+
+        // live coding
+        List<Integer> list = Arrays.asList(1, 2, null, 4, null, 5);
+        LiveCodingDemo liveCodingDemo = new LiveCodingDemo();
+        System.out.println(liveCodingDemo.sumOddElements(list));
+    }
+
+    // live coding
+    public int sumOddElements(List<Integer> array) {
+        if (array == null) {
+            return 0;
+        }
+
+        int sum = 0;
+
+        for (Integer item : array) {
+            if (item != null && item % 2 != 0) {
+                sum += item;
+            }
+        }
+
+        return sum;
     }
 
     public static void printFizzBuzz(int n) {
